@@ -4,6 +4,10 @@
 
 ### This challenge is to refactor a fully functioning app that uses a React's Context API, and convert it using Redux to manage state
 
+### Implementation Notes
+
+The redux state management code is contained in the client/src/redux folder. The redux store code was written to minimize the code changes that would be required in the other files in reactoring from the React Context API, and replacing with the Redux API.
+
 ### **User Story**
 
     AS a senior engineer working on an e-commerce platform
@@ -35,13 +39,11 @@
 
 ### **Challenge 22 - screenshots**
 
-<!--
 <img src="./screenshot-1.png" style="width: 50%; height=auto;">
 
 <img src="./screenshot-2.png" style="width: 50%; height=auto;">
 
 <img src="./screenshot-3.png" style="width: 50%; height=auto;">
--->
 
 ### **Challenge 22 - link to deployed app**
 
