@@ -47,6 +47,4 @@ The redux state management code is contained in the client/src/redux folder. The
 
 ### **Challenge 22 - link to deployed app**
 
-<!--
-<https://serene-island-55401.herokuapp.com/>
--->
+<https://still-lake-20256.herokuapp.com/>
