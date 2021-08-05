@@ -5,7 +5,11 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import spinner from "../assets/spinner.gif";
 
-import { useStoreContext } from "../utils/GlobalState";
+// this import uses react context store (old way)
+//import { useStoreContext } from "../../utils/GlobalState";
+// this import uses redux store (new way)
+import { useReduxStore } from "../redux/store";
+
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -17,7 +21,10 @@ import Cart from "../components/Cart";
 import { idbPromise } from "../utils/helpers";
 
 function Detail() {
-  const [state, dispatch] = useStoreContext();
+  // replace old way (react.context store) with new redux store
+  //const [state, dispatch] = useStoreContext();
+  const { state, dispatch } = useReduxStore();
+
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({});

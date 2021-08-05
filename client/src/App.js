@@ -21,7 +21,7 @@ import { StoreProvider } from "./utils/GlobalState";
 
 // redux store for state management
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import { reduxStore } from "./redux/store";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -47,7 +47,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Provider store={store}>
+          <Provider store={reduxStore}>
             <StoreProvider>
               <Nav />
               <Switch>

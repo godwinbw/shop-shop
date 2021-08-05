@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
-import { useStoreContext } from "../../utils/GlobalState";
+
+// this import uses react context store (old way)
+//import { useStoreContext } from "../../utils/GlobalState";
+// this import uses redux store (new way)
+import { useReduxStore } from "../../redux/store";
+
 import { idbPromise } from "../../utils/helpers";
 
 import {
@@ -13,7 +18,9 @@ function CategoryMenu() {
   //const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   //const categories = categoryData?.categories || [];
 
-  const [state, dispatch] = useStoreContext();
+  // replace old way (react.context store) with new redux store
+  //const [state, dispatch] = useStoreContext();
+  const { state, dispatch } = useReduxStore();
 
   const { categories } = state;
 

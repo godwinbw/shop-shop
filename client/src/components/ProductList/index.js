@@ -5,13 +5,19 @@ import ProductItem from "../ProductItem";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif";
 
-import { useStoreContext } from "../../utils/GlobalState";
+// this import uses react context store (old way)
+//import { useStoreContext } from "../../utils/GlobalState";
+// this import uses redux store (new way)
+import { useReduxStore } from "../../redux/store";
+
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 
 import { idbPromise } from "../../utils/helpers";
 
 function ProductList() {
-  const [state, dispatch] = useStoreContext();
+  // replace old way (react.context store) with new redux store
+  //const [state, dispatch] = useStoreContext();
+  const { state, dispatch } = useReduxStore();
 
   const { currentCategory } = state;
 

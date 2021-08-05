@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers";
 
-import { useStoreContext } from "../../utils/GlobalState";
+// this import uses react context store (old way)
+//import { useStoreContext } from "../../utils/GlobalState";
+// this import uses redux store (new way)
+import { useReduxStore } from "../../redux/store";
+
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
 import { idbPromise } from "../../utils/helpers";
@@ -10,7 +14,9 @@ import { idbPromise } from "../../utils/helpers";
 function ProductItem(item) {
   const { image, name, _id, price, quantity } = item;
 
-  const [state, dispatch] = useStoreContext();
+  // replace old way (react.context store) with new redux store
+  //const [state, dispatch] = useStoreContext();
+  const { state, dispatch } = useReduxStore();
 
   const { cart } = state;
 

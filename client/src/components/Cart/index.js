@@ -3,7 +3,11 @@ import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import "./style.css";
 
-import { useStoreContext } from "../../utils/GlobalState";
+// this import uses react context store (old way)
+//import { useStoreContext } from "../../utils/GlobalState";
+// this import uses redux store (new way)
+import { useReduxStore } from "../../redux/store";
+
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
@@ -14,7 +18,10 @@ import { useLazyQuery } from "@apollo/client";
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
-  const [state, dispatch] = useStoreContext();
+  // replace old way (react.context store) with new redux store
+  //const [state, dispatch] = useStoreContext();
+  const { state, dispatch } = useReduxStore();
+
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {

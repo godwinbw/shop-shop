@@ -1,10 +1,17 @@
 import React from "react";
-import { useStoreContext } from "../../utils/GlobalState";
+
+// this import uses react context store (old way)
+//import { useStoreContext } from "../../utils/GlobalState";
+// this import uses redux store (new way)
+import { useReduxStore } from "../../redux/store";
+
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
-  const [, dispatch] = useStoreContext();
+  // eliminate the react.context store and replace with redux store
+  //const [, dispatch] = useStoreContext();
+  const { dispatch } = useReduxStore();
 
   const removeFromCart = (item) => {
     dispatch({
