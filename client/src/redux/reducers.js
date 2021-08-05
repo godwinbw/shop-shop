@@ -21,6 +21,13 @@ const defaultState = {
 };
 
 const rootReducer = (state = defaultState, action) => {
+  // make sure we are using our redux reducer
+  //
+  console.log("*** redux rootReducer START ***");
+  console.log("   action.type -> ", action.type);
+  console.log(state);
+  console.log("*** redux rootReducer END ***");
+
   switch (action.type) {
     //if action type value is the value of 'UPDATE_PRODUCTS', return a new state object with an updated products array
     case UPDATE_PRODUCTS:
